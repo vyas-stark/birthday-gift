@@ -5,7 +5,7 @@ const chapterContent = {
   number: "Chapter 02",
   title: "When It Became Something More",
   pages: [
-    "Ipo nee enaku evalo important nu keta just words la solla mudiyadhu avalo important 🤗. namma first time pesunadhuku apro apo apo pesi and later ipo daily pesitu iruko , oru naal pesama irundhalum oru mari edho miss pandra mari irukum 🤧. nee enakaga unnoda study routine ah change panni iruka adhu la yaaru avalo sekiro panna mataga but nee panna adhu la irundhu theridhu nee enna evalo value pandra and enaku evalo importance thara nu🤗💗🌎. nee first time enta pesuna apo azhudha apo sonna na yaarutayum ivalo sekiro pesa maten and ipdi person la share panna maten nu but enta sonna so apo namma kulla takkunu oru bond create aachu🤗. ",
+    "Ipo nee enaku evalo important nu keta just words la solla mudiyadhu avalo important 🤗. namma first time pesunadhuku apro apo apo pesi and later ipo daily pesitu iruko , oru naal pesama irundhalum oru mari edho miss pandra mari irukum 🤧. nee enakaga unnoda study routine ah change panni iruka adhu la yaaru avalo sekiro panna mataga but nee panna adhu la irundhu theridhu nee enna evalo value pandra and enaku evalo importance thara nu🤗💗🌎. nee first time enta pesuna apo azhudha apo sonna na yaarutayum ivalo sekiro pesa maten and ipdi personal la share panna maten nu but enta sonna so apo namma kulla takkunu oru bond unexpected ah create aachu🤗. ",
     "[YOUR NEXT CHAPTER 02 PAGE WILL GO HERE]",
   ],
 };

@@ -5,7 +5,7 @@ const chapterContent = {
   number: "Chapter 03",
   title: "The Mummy-Son Chapter",
   pages: [
-    "Nee enna care pandra vidham enaku romba pudikum like andha mari enna yaarum care pannadhu illa so adhu enaku romba pudikum. adhuvum andha exam time la na message panna takku takkunu reply pannuva that to nee exam ku padichutu iruka modhu enaku andha time la na romba special nu feel aagum 🥰🤗. nee oru oru time unnoda time ah enakaga spent panna modhu na romba romba special ah feel pannuven thank you for that Mummyyy 🤗🌎. ",
+    "Namma oru naal message la pesitu iruka apo nee my son nu sonna apo nanu summa fun ku okk mother nu sonne apo na sonna mother oda meaning church mother but andha one word mother ipo enaku oru unmaiyana amma(mummy) kekaika help panni iruku🌎😘. just oru play full ah sonna word nala ipo world la best mummy enaku kedachu irukaga🌎. Nee enna care pandra vidham enaku romba pudikum like andha mari enna yaarum care pannadhu illa so adhu enaku romba pudikum. adhuvum andha exam time la na message panna takku takkunu reply pannuva that to nee exam ku padichutu iruka modhu enaku andha time la na romba special nu feel aagum 🥰🤗. chinna chinna visiyam kuda nee romba care panni pannuva like thanni kudi, sapdu, sekiro thoongu, thoongura apo message pannu idhu mari laa. nee oru oru time unnoda time ah enakaga spent panna modhu na romba romba special ah feel pannuven thank you for that Mummyyy 🤗🌎. ",
     "[YOUR NEXT CHAPTER 03 PAGE WILL GO HERE]",
   ],
 };
