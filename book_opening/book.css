@@ -1,0 +1,281 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Playfair+Display:ital,wght@500;600;1,500;1,600&display=swap");
+:root {
+  --gold: #c9aa78;
+  --paper: #efe5d0;
+  --ink: #17171a;
+  --night: #090d12;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+body {
+  background: var(--night);
+  color: #f4eee4;
+  font-family: "DM Sans", sans-serif;
+  overflow: hidden;
+}
+.book-stage {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  position: relative;
+  perspective: 1500px;
+  isolation: isolate;
+  background: radial-gradient(
+    ellipse at 50% 52%,
+    #24313a 0,
+    #101820 35%,
+    #090d12 76%
+  );
+}
+.book-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.16;
+  background: repeating-linear-gradient(
+    110deg,
+    transparent 0 7px,
+    rgba(255, 255, 255, 0.04) 8px,
+    transparent 9px
+  );
+}
+.stage-copy {
+  position: absolute;
+  top: 11vh;
+  z-index: 1;
+  text-align: center;
+}
+.kicker,
+.footer-note {
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.62rem;
+}
+.stage-copy h1 {
+  margin: 0.7rem 0;
+  font:
+    500 clamp(2.8rem, 7vw, 5rem)/1 "Playfair Display",
+    Georgia,
+    serif;
+  letter-spacing: -0.04em;
+}
+h1 em {
+  color: var(--gold);
+}
+.hint {
+  margin: 0;
+  color: #919ba1;
+  font-size: 0.78rem;
+}
+.book-shell {
+  position: relative;
+  z-index: 2;
+  width: min(600px, 72vw);
+  aspect-ratio: 1.28;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  filter: drop-shadow(0 32px 26px rgba(0, 0, 0, 0.48));
+  transition: transform 1.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.book-shell::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 7%;
+  right: 4%;
+  bottom: -10%;
+  height: 18%;
+  background: rgba(0, 0, 0, 0.65);
+  filter: blur(20px);
+  border-radius: 50%;
+}
+.book-cover,
+.book-inside,
+.page {
+  position: absolute;
+  inset: 0;
+  border-radius: 3px 10px 10px 3px;
+}
+.book-cover {
+  z-index: 3;
+  transform-origin: left center;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  color: var(--paper);
+  background: linear-gradient(110deg, #11191f, #253039 50%, #0e1419);
+  border: 1px solid #46535a;
+  box-shadow:
+    inset 10px 0 20px rgba(0, 0, 0, 0.35),
+    inset -8px 0 12px rgba(255, 255, 255, 0.05);
+  transition: transform 1.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+  backface-visibility: hidden;
+}
+.book-cover::before {
+  content: "";
+  position: absolute;
+  inset: 4%;
+  border: 1px solid rgba(201, 170, 120, 0.5);
+  border-radius: 2px 8px 8px 2px;
+}
+.book-cover p {
+  margin: 0 0 0.4rem;
+  font:
+    italic 1.2rem "Playfair Display",
+    Georgia,
+    serif;
+  color: var(--gold);
+}
+.book-cover strong {
+  font:
+    500 clamp(2.8rem, 8vw, 5.2rem)/0.9 "Playfair Display",
+    Georgia,
+    serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.book-cover small {
+  margin-top: 1.8rem;
+  color: #98a0a4;
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.cover-rule {
+  width: 42px;
+  height: 1px;
+  margin: 0 auto 1.4rem;
+  background: var(--gold);
+}
+.cover-rule:last-child {
+  margin: 1.4rem auto 0;
+}
+.book-inside {
+  display: flex;
+  gap: 2px;
+  padding: 4%;
+  background: #927554;
+}
+.page {
+  position: relative;
+  inset: auto;
+  flex: 1;
+  overflow: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: inset 0 0 25px rgba(91, 61, 35, 0.18);
+}
+.page::after {
+  content: "";
+  position: absolute;
+  inset: 7%;
+  border: 1px solid rgba(108, 78, 48, 0.22);
+}
+.right-page {
+  display: grid;
+  place-items: center;
+  font:
+    italic 1.4rem "Playfair Display",
+    Georgia,
+    serif;
+  color: #886c4c;
+}
+.right-page span {
+  position: relative;
+  z-index: 1;
+}
+.left-page::before {
+  content: "";
+  position: absolute;
+  top: 18%;
+  left: 12%;
+  width: 58%;
+  height: 1px;
+  background: rgba(108, 78, 48, 0.28);
+  box-shadow:
+    0 18px 0 rgba(108, 78, 48, 0.16),
+    0 36px 0 rgba(108, 78, 48, 0.16);
+}
+.open-button {
+  position: absolute;
+  z-index: 4;
+  bottom: 12vh;
+  min-height: 50px;
+  padding: 0 1.4rem;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  background: transparent;
+  font:
+    500 0.7rem "DM Sans",
+    sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.25s;
+}
+.open-button:hover {
+  background: var(--gold);
+  color: #14120e;
+}
+.open-button span {
+  margin-left: 0.5rem;
+  font-size: 1rem;
+}
+.footer-note {
+  position: absolute;
+  bottom: 3vh;
+  margin: 0;
+  color: #69747b;
+}
+.is-opening .book-cover {
+  transform: rotateY(-172deg);
+}
+.is-opening .book-shell {
+  transform: scale(1.13) translateY(3%);
+}
+.is-opening .stage-copy,
+.is-opening .open-button,
+.is-opening .footer-note {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.is-leaving {
+  animation: leave 1.3s ease forwards 1s;
+}
+@keyframes leave {
+  to {
+    opacity: 0;
+    transform: scale(1.28);
+  }
+}
+@media (max-width: 600px) {
+  .stage-copy {
+    top: 9vh;
+  }
+  .book-shell {
+    width: min(380px, 89vw);
+    aspect-ratio: 0.76;
+  }
+  .book-inside {
+    padding: 5%;
+  }
+  .left-page {
+    display: none;
+  }
+  .right-page {
+    border-radius: 3px 8px 8px 3px;
+  }
+  .book-cover strong {
+    font-size: 3.5rem;
+  }
+  .open-button {
+    bottom: 10vh;
+  }
+}

@@ -1,0 +1,278 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Playfair+Display:ital,wght@500;600;1,500&display=swap");
+:root {
+  --paper: #eee3cf;
+  --ink: #29251f;
+  --gold: #a9793c;
+  --night: #161716;
+  --muted: #756d62;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+body {
+  background: var(--night);
+  color: var(--paper);
+  font-family: "DM Sans", sans-serif;
+}
+.agreement-scene {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 3rem 1rem;
+  background: radial-gradient(ellipse at 50% 45%, #3a3429, #171716 68%);
+  position: relative;
+  overflow: hidden;
+}
+.agreement-scene::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.14;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0 4px,
+    rgba(255, 255, 255, 0.05) 5px
+  );
+}
+.document {
+  position: relative;
+  width: min(720px, 100%);
+  padding: clamp(2.3rem, 7vw, 5rem) clamp(1.4rem, 9vw, 6rem);
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.42);
+  animation: rise 0.8s ease both;
+}
+.document::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(92, 63, 31, 0.26);
+  pointer-events: none;
+}
+.document header {
+  text-align: center;
+  border-bottom: 1px solid rgba(92, 63, 31, 0.25);
+  padding-bottom: 1.7rem;
+}
+.document-kicker {
+  margin: 0;
+  color: var(--gold);
+  font-size: 0.62rem;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+.document h1 {
+  margin: 0.8rem 0 0.35rem;
+  font:
+    500 clamp(2.5rem, 7vw, 4.8rem)/1 "Playfair Display",
+    Georgia,
+    serif;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+.document h1 span {
+  font-size: 0.6em;
+  color: var(--gold);
+  vertical-align: middle;
+}
+.document-title {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.terms {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 2.5rem;
+  padding: 2rem 0;
+}
+.term-number {
+  margin: 0 0 0.45rem;
+  color: var(--gold);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+}
+.term-copy {
+  margin: 0;
+  font:
+    1rem/1.55 "Playfair Display",
+    Georgia,
+    serif;
+}
+.document-footer {
+  border-top: 1px solid rgba(92, 63, 31, 0.25);
+  padding-top: 1.5rem;
+  text-align: center;
+}
+.document-footer > p {
+  margin: 0 auto 1.5rem;
+  max-width: 420px;
+  color: var(--muted);
+  font:
+    italic 0.9rem/1.5 "Playfair Display",
+    Georgia,
+    serif;
+}
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.actions button,
+.signature-actions button,
+.last-page-button {
+  min-height: 46px;
+  padding: 0 1.1rem;
+  border: 1px solid var(--gold);
+  font:
+    500 0.66rem "DM Sans",
+    sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.accept-button,
+.agreement-button,
+.last-page-button {
+  background: var(--gold);
+  color: #20160b;
+}
+.cancel-button,
+.clear-button {
+  background: transparent;
+  color: var(--gold);
+}
+.cancel-message {
+  min-height: 1.2em !important;
+  margin: 1rem 0 0 !important;
+  color: var(--gold) !important;
+  font-style: italic !important;
+}
+.signature-panel,
+.accepted-panel {
+  position: fixed;
+  z-index: 4;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(8, 9, 8, 0.86);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s;
+}
+.signature-card,
+.accepted-panel > div {
+  position: relative;
+  width: min(540px, 100%);
+  padding: 2.5rem 1.5rem;
+  background: var(--paper);
+  color: var(--ink);
+  text-align: center;
+  box-shadow: 0 18px 50px #000;
+}
+.signature-card h2,
+.accepted-panel h2 {
+  margin: 1rem 0 0.3rem;
+  font:
+    500 clamp(2rem, 7vw, 3.8rem)/1 "Playfair Display",
+    Georgia,
+    serif;
+}
+.signature-card > p:not(.document-kicker),
+.accepted-panel > p:not(.document-kicker) {
+  margin: 0.5rem 0;
+  color: var(--muted);
+}
+.close-signature {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  background: transparent;
+  color: var(--gold);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+#signature-pad {
+  display: block;
+  width: 100%;
+  height: 180px;
+  margin: 1.5rem 0;
+  border: 1px solid rgba(92, 63, 31, 0.3);
+  background: #f7efdf;
+  touch-action: none;
+  cursor: crosshair;
+}
+.signature-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.is-signing .signature-panel,
+.is-accepted .accepted-panel {
+  opacity: 1;
+  pointer-events: auto;
+}
+.is-accepted .document {
+  opacity: 0.18;
+  filter: blur(3px);
+}
+.accepted-panel {
+  text-align: center;
+}
+.accepted-panel > p {
+  display: block;
+}
+.last-page-button {
+  margin-top: 1.5rem;
+}
+.is-accepted .accepted-panel {
+  display: grid;
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (max-width: 600px) {
+  .agreement-scene {
+    padding: 1.2rem 0.8rem;
+  }
+  .document {
+    padding: 2.6rem 1.3rem;
+  }
+  .document::before {
+    inset: 10px;
+  }
+  .terms {
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+    padding: 1.5rem 0;
+  }
+  .actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .actions button {
+    width: min(240px, 100%);
+  }
+  #signature-pad {
+    height: 160px;
+  }
+}

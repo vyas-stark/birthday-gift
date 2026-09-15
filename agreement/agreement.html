@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#171716">
+    <title>Official agreement</title>
+    <link rel="stylesheet" href="agreement.css">
+</head>
+
+<body>
+    <main class="agreement-scene">
+        <section class="document">
+            <header>
+                <p class="document-kicker">Between two people who chose each other</p>
+                <h1>Mummy <span>×</span> Son</h1>
+                <p class="document-title">Official Agreement</p>
+            </header>
+            <div class="terms"></div>
+            <footer class="document-footer">
+                <p>Signed with affection, patience, and absolutely no cancellation clause.</p>
+                <div class="actions"><button class="accept-button" type="button">Accept &amp; Sign
+                        <span>♡</span></button><button class="cancel-button" type="button">Cancel</button></div>
+                <p class="cancel-message" aria-live="polite"></p>
+            </footer>
+        </section>
+        <section class="signature-panel" aria-hidden="true">
+            <div class="signature-card"><button class="close-signature" type="button"
+                    aria-label="Close signature area">×</button>
+                <p class="document-kicker">A small formality</p>
+                <h2>One tiny signature.</h2>
+                <p>Sign here.</p><canvas id="signature-pad" aria-label="Signature drawing area"></canvas>
+                <div class="signature-actions"><button class="clear-button" type="button">Clear</button><button
+                        class="agreement-button" type="button">Accept Agreement</button></div>
+            </div>
+        </section>
+        <section class="accepted-panel" aria-live="polite">
+            <p class="document-kicker">The record has been updated</p>
+            <h2>Agreement accepted.</h2>
+            <p>Mummy-Son agreement: active.</p><button class="last-page-button" type="button">Open the last page
+                <span>→</span></button>
+        </section>
+    </main>
+    <script src="agreement.js"></script>
+</body>
+
+</html>

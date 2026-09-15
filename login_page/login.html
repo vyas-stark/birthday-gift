@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0b1018">
+    <title>The story is locked</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <main class="lock-screen">
+        <div class="ambient" aria-hidden="true"></div>
+        <div class="lock-card">
+            <p class="kicker">For Shruthi, only she can unload it.</p>
+            <div class="lock-mark" aria-hidden="true"><span class="shackle"></span><span
+                    class="lock-body"><span></span></span></div>
+            <p class="status">This story is locked.</p>
+            <h1>Before you enter,<br><em>answer one thing.</em></h1>
+            <p class="question">Who am I to you?</p>
+            <form class="unlock-form">
+                <label class="sr-only" for="answer">Your answer</label>
+                <input id="answer" name="answer" type="text" autocomplete="off" placeholder="Enter your answer"
+                    spellcheck="false">
+                <button type="submit">Unlock <span aria-hidden="true">↗</span></button>
+            </form>
+            <p class="response" aria-live="polite"></p>
+        </div>
+        <div class="access-message" aria-live="polite"><span>Access granted.</span><strong>Welcome,
+                Mummy😁.</strong><small>Now... open it.</small></div>
+    </main>
+    <script src="login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Playfair+Display:ital,wght@500;600;1,500&display=swap");
+:root {
+  --night: #0b1015;
+  --paper: #eee5d5;
+  --ink: #26231f;
+  --gold: #c9aa78;
+  --muted: #7c858a;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+body {
+  background: var(--night);
+  font-family: "DM Sans", sans-serif;
+}
+.story-scene {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 40%, #1d2a32, #0b1015 67%);
+  padding: 5rem 1.25rem;
+}
+.dust {
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  background-image: radial-gradient(circle, #e5d1ab 0 1px, transparent 1px);
+  background-size: 180px 210px;
+  animation: float 18s linear infinite;
+}
+.topbar {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  right: 2rem;
+  display: flex;
+  justify-content: space-between;
+  color: var(--gold);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.chapter-count {
+  color: #7d898d;
+}
+.story-page {
+  position: relative;
+  width: min(750px, 100%);
+  min-height: min(70vh, 650px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4.5rem clamp(1.4rem, 8vw, 6rem);
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.38);
+  animation: page-in 0.9s ease both;
+}
+.story-page::before {
+  content: "";
+  position: absolute;
+  inset: 17px;
+  border: 1px solid rgba(93, 69, 42, 0.24);
+  pointer-events: none;
+}
+.chapter-number {
+  margin: 0 0 1.5rem;
+  color: #95744b;
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.chapter-title {
+  max-width: 600px;
+  margin: 0;
+  font:
+    500 clamp(2.4rem, 6vw, 4.8rem)/0.95 "Playfair Display",
+    Georgia,
+    serif;
+  letter-spacing: -0.045em;
+}
+.ornament {
+  margin: 2.2rem 0;
+  color: #b68e59;
+  font-size: 0.9rem;
+}
+.story-copy {
+  max-width: 510px;
+  margin: 0;
+  font:
+    1.15rem/1.85 "Playfair Display",
+    Georgia,
+    serif;
+  color: #51483d;
+}
+.page-count {
+  position: absolute;
+  bottom: 2rem;
+  margin: 0;
+  color: #95744b;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+}
+.continue {
+  position: absolute;
+  bottom: 2.2rem;
+  right: 2.3rem;
+  min-height: 45px;
+  border: 0;
+  border-bottom: 1px solid var(--gold);
+  padding: 0.3rem 0.1rem;
+  color: var(--gold);
+  background: transparent;
+  font:
+    500 0.68rem "DM Sans",
+    sans-serif;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.continue span {
+  font-size: 1.2rem;
+  margin-left: 0.6rem;
+}
+.music-control {
+  position: absolute;
+  bottom: 2.2rem;
+  left: 2.3rem;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(201, 170, 120, 0.5);
+  border-radius: 50%;
+  color: var(--gold);
+  background: transparent;
+  cursor: pointer;
+}
+.is-turning .story-page {
+  animation: page-out 0.65s ease both;
+}
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(15px) rotateX(2deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes page-out {
+  to {
+    opacity: 0;
+    transform: translateY(-12px) rotateX(-2deg);
+  }
+}
+@keyframes float {
+  to {
+    transform: translate3d(30px, 20px, 0);
+  }
+}
+@media (max-width: 600px) {
+  .story-scene {
+    padding: 4rem 1rem 6rem;
+  }
+  .topbar {
+    top: 1.3rem;
+    left: 1.2rem;
+    right: 1.2rem;
+  }
+  .story-page {
+    min-height: 65svh;
+    padding: 3rem 2rem;
+  }
+  .story-page::before {
+    inset: 11px;
+  }
+  .story-copy {
+    font-size: 1.03rem;
+    line-height: 1.75;
+  }
+  .continue {
+    right: 1.3rem;
+    bottom: 1.2rem;
+  }
+  .music-control {
+    left: 1.3rem;
+    bottom: 1.2rem;
+  }
+}

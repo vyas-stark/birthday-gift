@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap");
+
+:root {
+  --ink: #f4f0e7;
+  --muted: #aaa59d;
+  --gold: #c8a776;
+  --night: #08090d;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+body {
+  background: var(--night);
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+  overflow: hidden;
+}
+.threshold {
+  min-height: 100svh;
+  display: grid;
+  place-content: center;
+  position: relative;
+  isolation: isolate;
+  padding: 2rem;
+  background: radial-gradient(
+    circle at 50% 48%,
+    #18202b 0,
+    #0b0e14 34%,
+    var(--night) 72%
+  );
+}
+.grain {
+  position: fixed;
+  inset: -50%;
+  opacity: 0.07;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
+  transform: rotate(4deg);
+  z-index: 3;
+}
+.star-field::before,
+.star-field::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(225, 211, 180, 0.5) 0 1px,
+    transparent 1px
+  );
+  background-size: 160px 170px;
+  opacity: 0.2;
+  animation: drift 16s linear infinite;
+}
+.star-field::after {
+  background-size: 230px 250px;
+  opacity: 0.12;
+  animation-duration: 24s;
+  animation-direction: reverse;
+}
+.eyebrow {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  margin: 0;
+  color: var(--gold);
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+h1 {
+  max-width: 620px;
+  margin: 0;
+  text-align: center;
+  font:
+    500 clamp(3rem, 9vw, 7.6rem)/0.88 "Playfair Display",
+    Georgia,
+    serif;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  animation: rise 1.2s ease both;
+}
+h1 em {
+  color: var(--gold);
+  font-size: 0.54em;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.progress-wrap {
+  width: min(300px, 70vw);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 4rem auto 0;
+}
+.progress-line {
+  height: 1px;
+  flex: 1;
+  background: rgba(255, 255, 255, 0.18);
+  overflow: hidden;
+}
+.progress-fill {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--gold);
+  box-shadow: 0 0 14px var(--gold);
+}
+.progress-number {
+  width: 2.4rem;
+  color: var(--gold);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+}
+.threshold-note {
+  margin: 1.1rem 0 0;
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes drift {
+  to {
+    transform: translate3d(25px, 18px, 0);
+  }
+}
+@media (max-width: 520px) {
+  .threshold {
+    padding: 1.4rem;
+  }
+  .eyebrow {
+    top: 1.4rem;
+    left: 1.4rem;
+  }
+  h1 {
+    font-size: clamp(2.6rem, 14vw, 4.7rem);
+  }
+  .progress-wrap {
+    margin-top: 3rem;
+  }
+}

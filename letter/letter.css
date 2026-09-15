@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Playfair+Display:ital,wght@500;600;1,500&display=swap");
+:root {
+  --paper: #efe6d7;
+  --ink: #29241e;
+  --gold: #aa7c43;
+  --night: #090c10;
+  --muted: #857968;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+body {
+  background: var(--night);
+  font-family: "DM Sans", sans-serif;
+}
+.letter-scene {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(
+    ellipse at 50% 42%,
+    #222b31,
+    #0c1116 68%,
+    #090c10
+  );
+}
+.letter-paper {
+  position: relative;
+  width: min(720px, 100%);
+  min-height: min(760px, calc(100svh - 4rem));
+  display: flex;
+  flex-direction: column;
+  padding: clamp(3rem, 9vw, 6rem) clamp(1.8rem, 11vw, 7rem);
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.4);
+  animation: appear 1s ease both;
+}
+.letter-paper::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(92, 63, 31, 0.24);
+  pointer-events: none;
+}
+.letter-kicker,
+.end-kicker {
+  margin: 0;
+  color: var(--gold);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.letter-paper h1 {
+  margin: 1.6rem 0 3rem;
+  font:
+    500 clamp(3rem, 8vw, 6rem)/0.9 "Playfair Display",
+    Georgia,
+    serif;
+  letter-spacing: -0.06em;
+}
+.letter-body {
+  flex: 1;
+  max-width: 500px;
+  font:
+    1.18rem/1.9 "Playfair Display",
+    Georgia,
+    serif;
+}
+.letter-body p {
+  margin: 0;
+}
+.sign-off {
+  margin: 3rem 0 0;
+  text-align: right;
+  font:
+    italic 1.1rem "Playfair Display",
+    Georgia,
+    serif;
+  color: var(--muted);
+}
+.read-button {
+  align-self: flex-start;
+  margin-top: 3rem;
+  border: 0;
+  border-bottom: 1px solid var(--gold);
+  padding: 0.25rem 0;
+  color: var(--gold);
+  background: transparent;
+  font:
+    500 0.68rem "DM Sans",
+    sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.read-button span {
+  font-size: 1.1rem;
+  margin-left: 0.5rem;
+}
+.end-screen {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  border: 1px solid rgba(92, 63, 31, 0.24);
+  pointer-events: none;
+  padding: 2rem;
+  color: var(--paper);
+  background: #090c10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.4s ease;
+}
+.end-screen h2 {
+  margin: 1.5rem 0;
+  font:
+    500 clamp(3.8rem, 13vw, 9rem)/0.8 "Playfair Display",
+    Georgia,
+    serif;
+  letter-spacing: -0.07em;
+  text-transform: uppercase;
+}
+.end-screen > p:last-child {
+  margin: 0;
+  color: #9aa0a2;
+  font:
+    italic 1.1rem/1.6 "Playfair Display",
+    Georgia,
+    serif;
+}
+.is-ended .letter-paper {
+  opacity: 0;
+  transition: opacity 1s;
+}
+.is-ended .end-screen {
+  opacity: 1;
+  pointer-events: auto;
+  transition-delay: 0.55s;
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (max-width: 600px) {
+  .letter-scene {
+    padding: 1rem;
+  }
+  .letter-paper {
+    min-height: calc(100svh - 2rem);
+    padding: 3rem 1.8rem;
+  }
+  .letter-paper::before {
+    inset: 10px;
+  }
+  .letter-paper h1 {
+    margin: 1.4rem 0 2.5rem;
+  }
+  .letter-body {
+    font-size: 1.06rem;
+    line-height: 1.8;
+  }
+  .read-button {
+    margin-top: 2.2rem;
+  }
+}
